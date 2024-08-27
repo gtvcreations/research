@@ -1,0 +1,19 @@
+.resizable-container {
+    background-color: #eee;
+    border: 1px solid #000;
+    resize: both;
+    overflow: auto;
+    font-family: sans-serif;
+}
+
+.title {
+    column-span: all;
+    padding: 25px 25px 0;
+    font-size: 36px;
+}
+
+.paragraph {
+    columns: 200px 3;
+    column-gap: 30px;
+    padding: 25px;
+}
