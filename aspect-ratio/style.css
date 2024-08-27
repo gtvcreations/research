@@ -1,0 +1,14 @@
+.resizable-container {
+    width: 400px;
+    height: 400px;
+    background-color: #eee;
+    border: 1px solid #000;
+    resize: both;
+    overflow: auto;
+    padding: 20px;
+}
+
+.aspect-ratio-container {
+    aspect-ratio: 16/9;
+    background-color: #f00;
+}
