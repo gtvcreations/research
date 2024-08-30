@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Page Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Semantic HTML Layout -->
+<div class="container">
+
+    <!-- Header -->
+    <header class="main-header">
+      <h1>{{site}}</h1>
+    </header>
+    <!-- Nav -->
+    <nav class="main-navbar">Navbar</nav>
+    <!-- Main -->
+    <main class="main-content">
+      Main Content
+      <!-- Article -->
+      <article>
+        <!-- Article Format: START -->
+        <!-- <figure></figure>
+        <p></p> -->
+        <!-- Article Format: END -->
+        <h3>{{title}}</h3>
+        <router-outlet />
+      </article>
+      <!-- Section -->
+      <section>
+        Section
+      </section>
+    </main>
+    <!-- Aside -->
+    <aside class="main-sidebar">
+      Sidebar
+      <a href="http://">Link</a>
+    </aside>
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>Copyright Message.</p>
+    </footer>
+    
+    </div>
+</body>
+
+</html>
