@@ -1,30 +1,41 @@
+import { uid } from '../utilities/utilities.js';
+
+const elementName = 'input-field';
+
 class InputFieldComponent extends HTMLElement {
 
     #label = document.createElement('label');
     #input = document.createElement('input');
 
     #defaultData = {
-        label: 'Label Name'
+        label: 'Label Name',
+        id: '',
+        type: 'text'
     };
 
     #data = {};
+
+    get inputElem() {
+        return this.#input;
+    }
 
     get props() {
         return this.#data;
     }
 
-    set setProps(aObj) {
-        this.#data = {...this.#defaultData, ...aObj};;
-        this.manipulateProps(this.#data);
+    set props(aObj) {
+        this.#data = { ...this.#defaultData, ...aObj };
+        this.#updateProps(this.#data);
     }
 
-    set updateProps(aObj) {
-        this.#data = {...this.#data, ...aObj};
-        this.manipulateProps(this.#data);
+    set setProps(aObj) {
+        this.#data = { ...this.#data, ...aObj };
+        this.#updateProps(this.#data);
     }
 
     constructor() {
         super();
+        this.#defaultData.id = uid(elementName);
     }
 
     connectedCallback() {
@@ -37,15 +48,28 @@ class InputFieldComponent extends HTMLElement {
         this.removeChild(this.#input);
     }
 
-    manipulateProps(propsData) {
-        let props = propsData;
+    #updateProps(aObj) {
+        let props = aObj;
+        console.log(aObj);
 
-        if(props?.label) {
-            this.#label.textContent = props.label
+
+        for (const key in props) {
+            if (key === 'label') {
+                this.#label.textContent = props[key];
+            } else if(!['elem'].includes(key)) {
+                if (key === 'id') {
+                    this.#setAttributes(this.#input, key, props[key]);
+                    this.#setAttributes(this.#label, 'for', props[key]);
+                } else {
+                    this.#setAttributes(this.#input, key, props[key]);
+                }
+            }
         }
+    }
 
-        if(props?.id)
+    #setAttributes(elem, key, value) {
+        elem.setAttribute(key, value);
     }
 }
 
-customElements.define('input-field', InputFieldComponent);
+customElements.define(elementName, InputFieldComponent);
