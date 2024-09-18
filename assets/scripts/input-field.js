@@ -1,42 +1,42 @@
 import { uid } from './utilities.js';
 
 const elementName = 'input-field';
+const defaultProps = {
+    label: 'Label Name',
+    id: '',
+    type: 'text'
+};
+const ignoreSetAttributes = ['label', 'id', 'value', 'defaultValue'];
 
 class InputFieldComponent extends HTMLElement {
+
+    static info = {
+        shadowDOM: false,
+        version: '2024'
+    };
 
     #label = document.createElement('label');
     #input = document.createElement('input');
 
-    #defaultData = {
-        label: 'Label Name',
-        id: '',
-        type: 'text'
-    };
+    #data = { ...defaultProps };
 
-    #data = {};
-
-    get inputElem() {
+    getInputElem() {
         return this.#input;
     }
 
-    get props() {
+    getProps() {
         return this.#data;
     }
 
-    set props(aObj) {
-        this.#data = { ...this.#defaultData, ...aObj };
-        this.#updateProps(this.#data);
-    }
-
-    set setProps(aObj) {
+    setProps(aObj) {
         this.#data = { ...this.#data, ...aObj };
         this.#updateProps(aObj);
     }
 
     constructor() {
         super();
-        this.#defaultData.id = uid(elementName);
-        this.#updateProps(this.#defaultData);
+        this.#data.id = uid(elementName);
+        this.#updateProps(this.#data);
     }
 
     connectedCallback() {
@@ -51,23 +51,32 @@ class InputFieldComponent extends HTMLElement {
 
     #updateProps(aObj) {
         let props = aObj;
-        console.log(props);
         for (const key in props) {
             if (key === 'label') {
                 this.#label.textContent = props[key];
-            } else if(!['elem'].includes(key)) {
-                if (key === 'id') {
-                    this.#setAttributes(this.#input, key, props[key]);
-                    this.#setAttributes(this.#label, 'for', props[key]);
-                } else {
-                    this.#setAttributes(this.#input, key, props[key]);
-                }
+            }
+
+            if (key === 'id') {
+                this.#setAttributes(this.#input, key, props[key]);
+                this.#setAttributes(this.#label, 'for', props[key]);
+            }
+
+            if (key === 'value') {
+                this.#input.value = props[key];
+            }
+
+            if (key === 'defaultValue') {
+                this.#setAttributes(this.#input, 'value', props[key]);
+            }
+
+            if (!ignoreSetAttributes.includes(key)) {
+                this.#setAttributes(this.#input, key, props[key]);
             }
         }
     }
 
-    #setAttributes(elem, key, value) {
-        elem.setAttribute(key, value);
+    #setAttributes(aElem, aKey, aValue) {
+        aElem.setAttribute(aKey, aValue);
     }
 }
 
