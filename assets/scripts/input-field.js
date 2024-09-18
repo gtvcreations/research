@@ -1,4 +1,4 @@
-import { uid } from '../utilities/utilities.js';
+import { uid } from './utilities.js';
 
 const elementName = 'input-field';
 
@@ -30,12 +30,13 @@ class InputFieldComponent extends HTMLElement {
 
     set setProps(aObj) {
         this.#data = { ...this.#data, ...aObj };
-        this.#updateProps(this.#data);
+        this.#updateProps(aObj);
     }
 
     constructor() {
         super();
         this.#defaultData.id = uid(elementName);
+        this.#updateProps(this.#defaultData);
     }
 
     connectedCallback() {
@@ -50,9 +51,7 @@ class InputFieldComponent extends HTMLElement {
 
     #updateProps(aObj) {
         let props = aObj;
-        console.log(aObj);
-
-
+        console.log(props);
         for (const key in props) {
             if (key === 'label') {
                 this.#label.textContent = props[key];

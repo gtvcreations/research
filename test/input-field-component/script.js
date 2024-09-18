@@ -1,4 +1,4 @@
-import './input-field.component.js';
+import '../../assets/scripts/input-field.js';
 
 var field1 = document.createElement('input-field');
 document.body.appendChild(field1);
@@ -8,6 +8,10 @@ field1.props = {
     type: 'password'
 };
 
+field1.setProps = {
+    label: 'Label updated'
+};
+
 var field2 = document.createElement('input-field');
 document.body.appendChild(field2);
 field2.props = {
@@ -15,3 +19,7 @@ field2.props = {
     // id: 'my-id',
     type: 'password'
 };
+
+field1.inputElem.addEventListener('input', function(event) {
+    console.log(event);
+});
