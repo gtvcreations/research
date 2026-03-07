@@ -1,0 +1,40 @@
+:root {
+  /* Font Family */
+  --font-family-serif: serif;
+  --font-family-sans-serif: sans-serif;
+  --font-family-monospace: monospace;
+  --font-family-cursive: cursive;
+  --font-family-fantasy: fantasy;
+
+  /* Heading */
+  --font-size-h1: 3rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.75rem;
+  --font-size-h5: 1.5rem;
+  --font-size-h6: 1.125rem;
+  /* Paragraph */
+  --font-size: 1rem;
+  /* Small */
+  --font-size-sm: 0.75rem;
+  /* Caption */
+  --font-size-caption: 0.5rem;
+
+  /* Border */
+  --border-radius: 0.25rem;
+  --border-radius-sm: 0.125rem;
+
+  /* Space */
+  --space-none: 0;
+  --space-sm: 0.5rem;
+  --space: 1rem;
+  --space-lg: 2rem;
+  /* Margin */
+  --margin-sm: 0.5rem 0;
+  --margin-md: 1rem 0;
+  --margin-lg: 2rem 0;
+  /* Padding */
+  --padding-sm: 0.5rem 1rem;
+  --padding-md: 1rem 2rem;
+  --padding-lg: 2rem 4rem;
+}

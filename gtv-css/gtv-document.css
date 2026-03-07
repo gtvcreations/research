@@ -1,0 +1,159 @@
+/* // Check ADA Color Contrast Checker */
+/* // https://accessibleweb.com/color-contrast-checker/ */
+.gtv {
+  /* Box Sizing */
+  box-sizing: border-box;
+
+  * {
+    box-sizing: inherit;
+
+    &::before,
+    &::after {
+      box-sizing: inherit;
+    }
+  }
+
+  /* Common */
+  font-size: var(--font-size);
+  font-family: var(--font-family-sans-serif);
+  line-height: 1.4;
+
+  /* Body */
+  body& {
+    margin: 0;
+  }
+
+  /* Heading */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-sans-serif);
+    line-height: 1.2;
+    margin: var(--space-lg) 0 var(--space);
+  }
+
+  h1 {
+    font-size: var(--font-size-h1);
+  }
+
+  h2 {
+    font-size: var(--font-size-h2);
+  }
+
+  h3 {
+    font-size: var(--font-size-h3);
+  }
+
+  h4 {
+    font-size: var(--font-size-h4);
+  }
+
+  h5 {
+    font-size: var(--font-size-h5);
+  }
+
+  h6 {
+    font-size: var(--font-size-h6);
+  }
+
+  /* Paragraph */
+  p {
+    margin: var(--space) 0;
+  }
+
+  /* Inline Elements */
+  mark,
+  del,
+  ins {
+    padding: 0.025rem 0.125rem;
+    border-radius: var(--border-radius-sm);
+  }
+
+  mark {
+    background-color: #ff0;
+    color: #050;
+  }
+
+  del {
+    text-decoration: line-through;
+    background-color: #fbb;
+    color: #333;
+  }
+
+  ins {
+    text-decoration: none;
+    background-color: #d4fcbc;
+    color: #009;
+  }
+
+  s {
+    text-decoration-color: #a00;
+  }
+
+  u {
+    text-decoration-color: #a00;
+    text-decoration-style: wavy;
+  }
+
+  q {
+    font-family: var(--font-family-serif);
+    font-style: italic;
+    color: #009;
+  }
+
+  small {
+    font-size: var(--font-size-sm);
+  }
+
+  /* kbd {
+    box-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.2),
+      0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  } */
+
+  /* kbd {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1;
+    vertical-align: middle;
+    color: #333;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 0.1rem 0.25rem;
+    border-radius: var(--border-radius-sm);
+  } */
+
+  kbd {
+
+  }
+
+  /* kbd {
+    padding: 3px 5px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 0.1em #ffffff;
+    text-shadow: 0 1px 0 #fff;
+  } */
+
+
+  code {
+    background-color: #eee;
+    border-radius: 3px;
+    font-family: var(--font-family-monospace);
+    padding: 0 3px;
+  }
+
+  blockquote {
+    padding-left: 15px;
+    border-left: 3px solid #d7d7db;
+    font-size: 1rem;
+  }
+
+  output {
+    font-family: var(--font-family-monospace);
+  }
+
+}
