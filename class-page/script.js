@@ -1,4 +1,6 @@
-import './page.js';
+import { Page } from './page.js';
+
+let page = new Page();
 
 setTimeout(function() {
     page.setProps({

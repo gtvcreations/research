@@ -1,6 +1,4 @@
-const INSTANCE_NAME = 'page';
-
-class PageClass {
+export class Page {
 
   static info = {
     version: '2024'
@@ -32,5 +30,3 @@ class PageClass {
     }
   }
 }
-
-window[INSTANCE_NAME] = new PageClass();
