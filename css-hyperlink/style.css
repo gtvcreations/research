@@ -1,22 +1,18 @@
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
 a {
     background-color: rgba(0, 0, 0, 0);
-}
+    color: #333;
+    text-underline-offset: .1rem;
+    transition: all .1s linear;
 
-a {
-  color: #555;
-  text-underline-offset: .1em;
-  transition: all .1s linear;
-}
+    &:hover,
+    &:focus,
+    &:active {
+        color: #00f;
+        text-underline-offset: .25rem;
+    }
 
-a:hover, a:focus, a:active {
-    color: #000;
-    text-underline-offset: .25em;
-}
-
-a:hover, a:active {
-    outline: 0;
+    &:hover,
+    &:active {
+        outline: 0;
+    }
 }
