@@ -3,17 +3,17 @@ class GetterSetter {
   #data = {};
 
   get props() {
-    console.log(this.#data);
+    console.log('Get Prop', this.#data);
     return this.#data;
   }
 
   set setProps(aObj) {
-    console.log(aObj);
+    console.log('Set Prop', aObj);
     this.#data = aObj;
   }
 
   set updateProps(aObj) {
-    console.log(aObj);
+    console.log('Update Prop', aObj);
     this.#data = { ...this.#data, ...aObj };
   }
 }
